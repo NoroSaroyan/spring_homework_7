@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+
+<body>
+<h1>Edit Product</h1>
+    <form th:action="@{/products-add}" th:object="${products}" method="post">
+<table>
+    <tr>
+        <td>Наименования:</td>
+        <td><input required type="text" th:field="*{name}"/></td>
+    </tr>
+    <tr>
+        <td>Описание:</td>
+        <td><input required type="text" input th:field="*{description}"/>
+
+        </td>
+    </tr>
+    <tr>
+        <td>Категория:</td>
+        <td>
+            <input required type="text"  th:object="${categories}" th:field="${categories}"/>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option selected>Выберите котегорию</option>
+                <option th:each="category : ${categories}" th:value="${category.id}"
+                        th:text="${products.categories}"></option>
+            </select>
+
+        </td>
+    </tr>
+    <tr>
+        <td>Цена:</td>
+        <td><input required type="number" th:field="*{price}" pattern='[0-9]+(\\.[0-9][0-9]?)?'/></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+        </td>
+    </tr>
+</table>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Cart</h1>
+
+<form th:action="@{/cartToAdd}" th:object="${cart}" method="post">
+    <div class="form-group">
+        <label>ID product</label>
+        <input class="form-control" required type="text"   id="countProduct" name="countProduct" th:field="*{cart.countProduct}"  placeholder="Enter countProduct">
+
+        <label>Count Product</label>
+        <input type="text" class="form-control" id="productId" name="productId" th:field="*{cart.id}" placeholder="Enter product Id">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>

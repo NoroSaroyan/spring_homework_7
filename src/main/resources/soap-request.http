@@ -1,0 +1,10 @@
+###
+
+# curl -XPOST --header "content-type: text/xml" -d @soap-request.xml -v http://localhost:8080/ws
+POST http://localhost:8080/ws
+Content-Type: text/xml
+
+< soap-request.xml
+
+###
+

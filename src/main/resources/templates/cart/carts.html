@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body>
+<div>
+    <h2>Корзина</h2>
+    <br>
+
+<td>
+    <a href="/templates/products/products.html">Продукты</a>
+</td>
+</div>
+<form th:action="@{/carts}" th:object="${cart}" >
+<div>
+    <div th:unless="${#lists.isEmpty(cartsList)}">
+        <table>
+                <tr>
+                    <th>Артикул</th>
+                    <th>ID product</th>
+                    <th>count product</th>
+                </tr>
+
+            <tbody>
+            <tr th:each="carts: ${cartsList}">
+                <td th:text="${cartcarts.products.get(product.id}" ></td>
+                <td th:text="${carts.countProduct}"></td>
+
+            </tr>
+
+            <th headerText="Actions">
+
+                <Button method="delete"  th:action="#{}"
+                                update="deleteCart">Remove</Button>
+            </th>
+        </tbody>
+        </table>
+    </div>
+</div>
+</form>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+<body>
+<h4><a th:href="@{/index}">Главная страница</a></h4>
+<h2 class="text-center">Список товаров</h2>
+<div th:unless="${#lists.isEmpty(productList)}">
+    <table class="table table-striped">
+        <tr>
+            <th>Артикул</th>
+            <th>Наименование</th>
+            <th>Цена</th>
+            <th>Описание</th>
+            <th>Выбрать</th>
+            <th>Количество</th>
+
+        </tr>
+        <tbody>
+        <tr th:each="product : ${productList}">
+
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.description}"></td>
+            <td th:text="${product.categories}"></td>
+        <td>
+            <form method="post" th:object="carts" th:action="@{/cart/cartToAdd}">
+              <li th:each="product : ${productList}">
+                  <input type="checkbox"  th:field="*{product}" th:value="#{${product.id}}"/>
+                  <label th:for="${#ids.prev('product')}"
+                         th:text="#{${'carts.products.get(id)' + carts.products.get(product.id)}}"></label>
+              <input th:name="*{carts.countProduct}"/>
+                <input type="submit" , name="Добавить в корзину"/>
+              </li>
+            </form>
+
+        </td>
+        </tbody>
+        </tr>
+    </table>
+</div>
+
+</div>
+</body>
+</html>

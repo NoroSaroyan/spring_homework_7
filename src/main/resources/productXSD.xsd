@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://gb.ru/web/service"
+           targetNamespace="http://gb.ru/web/service" elementFormDefault="qualified">
+
+    <xs:element name="getListProductResponse">
+        <xs:complexType>
+        <xs:all>
+            <xs:element name="product" type="tns:product"/>
+        </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getListProductRequest">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="name" type="tns:category"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getProductRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getProductResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="product" type="tns:product"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="category">
+        <xs:sequence>
+            <xs:element name="categoryId" type="xs:long"/>
+            <xs:element name="categoryName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="product">
+        <xs:sequence>
+            <xs:element name="productId" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="price" type="xs:decimal"/>
+            <xs:element name="category" type="tns:category"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

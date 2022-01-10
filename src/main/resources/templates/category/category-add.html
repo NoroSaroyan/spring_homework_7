@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" modelAttribute="addCategories">
+    <input type="hidden" id="id" name="id" value="${category.id}">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" id="name" name="name" value="${category.name}" placeholder="Enter name">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>

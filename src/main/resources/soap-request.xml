@@ -1,0 +1,18 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:gs="http://gb.ru/web/service" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http:/gb.ru/web.service ">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <gs:getProductRequest>
+            <gs:id>1</gs:id>
+        </gs:getProductRequest>
+
+
+        <gs:getListProductRequest>
+            <gs:name>category<gs:name>
+            <gs:categoryId>1</gs:categoryId>
+            <gs:categoryName>test</gs:categoryName>
+        </gs:name>
+        </gs:getListProductRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
